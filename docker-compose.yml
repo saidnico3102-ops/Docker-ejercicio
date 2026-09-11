@@ -2,10 +2,12 @@ services:
   api:
     build: ./api
     ports:
-      - "${PORT}:3000"
+      - "3000-3002:3000"
     environment:
       MESSAGE: ${MESSAGE}
       PORT: 3000
+    deploy:
+      replicas: 3
 
   db:
     image: postgres:16-alpine
