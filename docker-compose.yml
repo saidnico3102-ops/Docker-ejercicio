@@ -2,17 +2,17 @@ services:
   api:
     build: ./api
     ports:
-      - "3000:3000"
+      - "${PORT}:3000"
     environment:
-      MESSAGE: Said Miñan
+      MESSAGE: ${MESSAGE}
       PORT: 3000
 
   db:
     image: postgres:16-alpine
     environment:
-      POSTGRES_USER: lab02_user
-      POSTGRES_PASSWORD: lab02_pass
-      POSTGRES_DB: lab02_db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - pgdata:/var/lib/postgresql/data
 
