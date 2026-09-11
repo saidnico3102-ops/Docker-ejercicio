@@ -6,3 +6,15 @@ services:
     environment:
       MESSAGE: Said Miñan
       PORT: 3000
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: lab02_user
+      POSTGRES_PASSWORD: lab02_pass
+      POSTGRES_DB: lab02_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
